@@ -27,6 +27,7 @@ public class BrokenLineView extends PathView {
 	}
 
 	public void setPoint(float[] points) {
+		reset();
 		if (points == null)
 			return;
 		int len = points.length;
