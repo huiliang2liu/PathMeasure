@@ -44,14 +44,14 @@ public class PathView extends ImageView {
 	public void layout(int l, int t, int r, int b) {
 		// TODO Auto-generated method stub
 		Log.e("layout", "l=" + l + " t=" + t + " r=" + r + " b=" + b);
-//		RectF rect = new RectF();
-//		for (int i = 0; i < pathSources.size(); i++) {
-//			pathSources.get(i).computeBounds(rect, true);
-//			l = (int) (l > rect.left ? rect.left : l);
-//			t = (int) (t > rect.top ? rect.top : t);
-//			r = (int) (r > rect.right ? r : rect.right);
-//			b = (int) (b > rect.bottom ? b : rect.bottom);
-//		}
+		// RectF rect = new RectF();
+		// for (int i = 0; i < pathSources.size(); i++) {
+		// pathSources.get(i).computeBounds(rect, true);
+		// l = (int) (l > rect.left ? rect.left : l);
+		// t = (int) (t > rect.top ? rect.top : t);
+		// r = (int) (r > rect.right ? r : rect.right);
+		// b = (int) (b > rect.bottom ? b : rect.bottom);
+		// }
 		super.layout(l, t, r, b);
 	}
 
@@ -82,6 +82,17 @@ public class PathView extends ImageView {
 
 	public void addPath(Path path) {
 		pathSources.add(path);
+	}
+
+	/**
+	 * 
+	 * 2018 2018-2-11 上午11:25:23 annotation：重置 author：liuhuiliang email
+	 * ：825378291@qq.com void
+	 */
+	public void reset() {
+		pathSources.clear();
+		pathDraw.clear();
+		measures.clear();
 	}
 
 	@SuppressLint("NewApi")
