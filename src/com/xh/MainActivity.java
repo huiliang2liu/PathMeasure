@@ -2,8 +2,10 @@ package com.xh;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener {
 	BrokenLineView pathView;
 
 	@Override
@@ -12,6 +14,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		try {
 			pathView = (BrokenLineView) findViewById(R.id.path_view);
+			findViewById(R.id.reset).setOnClickListener(this);
 			// Path path = new Path();
 			// path.moveTo(600, 600);
 			// path.lineTo(600, 10);
@@ -55,17 +58,27 @@ public class MainActivity extends Activity {
 			// path5.lineTo(260, 260);
 			// path5.close();
 			// path3.addPath(path5);
-			float[] points = new float[70];
-			for (int i = 0; i < 70; i += 2) {
-				points[i] = i * 20;
-				points[i + 1] = (float) (Math.random() * 700);
-			}
-			pathView.setPoint(points);
-			pathView.start();
+			drawBrokenLine();
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 
+	private void drawBrokenLine() {
+		float[] points = new float[70];
+		for (int i = 0; i < 70; i += 2) {
+			points[i] = i * 10;
+			points[i + 1] = (float) (Math.random() * 700);
+		}
+		pathView.setPoint(points);
+		pathView.start();
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		drawBrokenLine();
+	}
 }
